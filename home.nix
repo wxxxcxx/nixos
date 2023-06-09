@@ -10,16 +10,16 @@
 
   home.file = {
     # zsh 配置
-    ".zshrc".source = ../zsh/zshrc;
-    ".zshenv".source = ../zsh/zshenv;
-    ".config/zsh/theme".source = ../zsh/theme;
-    ".config/zsh/sudo".source = ../zsh/sudo;
-    ".config/zsh/proxy".source = ../zsh/proxy;
-    ".config/zsh/antigen".source = ../zsh/antigen;
-    ".config/zsh/pyenv".source = ../zsh/pyenv;
-    ".config/zsh/fnm".source = ../zsh/fnm;
-    ".config/zsh/keys".source = ../zsh/keys;
-    ".config/zsh/aliases".source = ../zsh/aliases;
+    ".zshrc".source = ./dotfiles/zsh/zshrc;
+    #".zshenv".source = ./dotfiles/zsh/zshenv;
+    #".config/zsh/theme".source = ./dotfiles/zsh/theme;
+    #".config/zsh/sudo".source = ./dotfiles/zsh/sudo;
+    #".config/zsh/proxy".source = ./dotfiles/zsh/proxy;
+    #".config/zsh/antigen".source = ./dotfiles/zsh/antigen;
+    #".config/zsh/pyenv".source = ./dotfiles/zsh/pyenv;
+    #".config/zsh/fnm".source = ./dotfiles/zsh/fnm;
+    #".config/zsh/keys".source = ./dotfiles/zsh/keys;
+    #".config/zsh/aliases".source = ./dotfiles/zsh/aliases;
   };
   home.sessionVariables = {
     EDITOR = "nvim";

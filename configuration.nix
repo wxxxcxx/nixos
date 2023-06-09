@@ -160,11 +160,13 @@
     gnomeExtensions.customize-ibus
     gnomeExtensions.transparent-top-bar 
     gnomeExtensions.just-perfection
+    gnomeExtensions.user-themes-x
     qq
     rustup
     telegram-desktop
-    vscode
+    vscode.fhs
     wezterm
+
   ];
 
   programs.zsh = {
