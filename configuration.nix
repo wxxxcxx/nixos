@@ -70,6 +70,7 @@
       noto-fonts-emoji
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
+      source-code-pro
     ];
 
     fontconfig = {
@@ -160,13 +161,12 @@
     gnomeExtensions.customize-ibus
     gnomeExtensions.transparent-top-bar 
     gnomeExtensions.just-perfection
-    gnomeExtensions.user-themes-x
+    gnomeExtensions.night-theme-switcher
     qq
     rustup
     telegram-desktop
-    vscode.fhs
+    vscode
     wezterm
-
   ];
 
   programs.zsh = {
@@ -174,7 +174,7 @@
     shellAliases = {
       ll = "ls -l";
       vim = "nvim";
-      update = "sudo nixos-rebuild switch --flake ~/Workspace/Personal/nixos";
+      update = "sudo nixos-rebuild switch";
     };
   };
 
