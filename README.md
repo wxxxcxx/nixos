@@ -9,4 +9,6 @@ nix profile history --profile /nix/var/nix/profiles/system
 sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
 # 清理历史版本并不会删除数据，还需要手动 gc 下
 sudo nix store gc --debug
+
+# 显示已经安装的 package
 ```

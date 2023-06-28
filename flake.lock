@@ -3,14 +3,32 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 0,
-        "narHash": "sha256-TKOY2VAC2FkWtJBktALQUhK6qWUK+d1IvQjyO0HvIrE=",
-        "path": "/home/wx/Workspace/Personal/nixos/dotfiles",
-        "type": "path"
+        "lastModified": 1687942960,
+        "narHash": "sha256-WItMH9TQBo6qDKQ61XDUeT9i1460GyCPvFS2SEj+BKg=",
+        "ref": "refs/heads/master",
+        "rev": "b265b9e6444f3504d8affbd655400a24c873fc37",
+        "revCount": 96,
+        "type": "git",
+        "url": "https://github.com/wxxxcxx/dotfiles"
       },
       "original": {
-        "path": "/home/wx/Workspace/Personal/nixos/dotfiles",
-        "type": "path"
+        "type": "git",
+        "url": "https://github.com/wxxxcxx/dotfiles"
+      }
+    },
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1638122382,
+        "narHash": "sha256-sQzZzAbvKEqN9s0bzWuYmRaA03v40gaJ4+iL1LXjaeI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "74f7e4319258e287b0f9cb95426c9853b282730b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
       }
     },
     "home-manager": {
@@ -20,11 +38,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1686305101,
-        "narHash": "sha256-xCgeI+uTKay3Ab3tMdP9m9flIJbFkRMKwRAmg5PQhJQ=",
+        "lastModified": 1687969886,
+        "narHash": "sha256-tC2qFLmuM0PFaw0tMHVcFmzsG/351q09qa1EpuL2n1U=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "1e5d741ea3f3290d7ac06a02ded24bfdc7aadb37",
+        "rev": "a7002d6bfca54742d5fc9b485a1879953b4585b9",
         "type": "github"
       },
       "original": {
@@ -33,18 +51,55 @@
         "type": "github"
       }
     },
+    "nixos-cn": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1682818384,
+        "narHash": "sha256-l8jh9BQj6nfjPDYGyrZkZwX1GaOqBX+pBHU+7fFZU3w=",
+        "owner": "nixos-cn",
+        "repo": "flakes",
+        "rev": "2d475ec68cca251ef6c6c69a9224db5c264c5e5b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos-cn",
+        "repo": "flakes",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1686226982,
-        "narHash": "sha256-nLuiPoeiVfqqzeq9rmXxpybh77VS37dsY/k8N2LoxVg=",
+        "lastModified": 1687898314,
+        "narHash": "sha256-B4BHon3uMXQw8ZdbwxRK1BmxVOGBV4viipKpGaIlGwk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a64b73e07d4aa65cfcbda29ecf78eaf9e72e44bd",
+        "rev": "e18dc963075ed115afb3e312b64643bf8fd4b474",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
         "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-stable": {
+      "locked": {
+        "lastModified": 1687829761,
+        "narHash": "sha256-QRe1Y8SS3M4GeC58F/6ajz6V0ZLUVWX3ZAMgov2N3/g=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "9790f3242da2152d5aa1976e3e4b8b414f4dd206",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-23.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -73,11 +128,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1687884894,
-        "narHash": "sha256-ZJtXW7bIetK9tyCGmdYoVv3Hj3dcDMi/wHrJYsggAaU=",
+        "lastModified": 1687953869,
+        "narHash": "sha256-1Wc8sLJuLY0iqLoAXVm8TMMVb8gHKv15LmuUM5R9rj4=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "22883acac7125b047fe9937deebe72f465ec0d65",
+        "rev": "537abb24f0d7cc84c43cb412e579e22f8807c236",
         "type": "github"
       },
       "original": {
@@ -90,7 +145,9 @@
       "inputs": {
         "dotfiles": "dotfiles",
         "home-manager": "home-manager",
+        "nixos-cn": "nixos-cn",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-stable": "nixpkgs-stable",
         "nvim": "nvim",
         "programs-sqlite": "programs-sqlite"
       }
