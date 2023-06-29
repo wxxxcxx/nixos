@@ -88,6 +88,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-nur": {
+      "locked": {
+        "lastModified": 1688049654,
+        "narHash": "sha256-4ANk70Wrwbj5WkHNCsBJZlU84P8I7z1IXOHdAvOXbM0=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "69bc80a2beb3657d238774cd0faff1291fa8414b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1687829761,
@@ -128,11 +143,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1687953869,
-        "narHash": "sha256-1Wc8sLJuLY0iqLoAXVm8TMMVb8gHKv15LmuUM5R9rj4=",
+        "lastModified": 1688048704,
+        "narHash": "sha256-266cl+oLvmt9XENVVzaTDHVGrivdJfq65heoLW5/uTQ=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "537abb24f0d7cc84c43cb412e579e22f8807c236",
+        "rev": "1d04d40a3bd7f9d54de2a4f202839ba4b221de1f",
         "type": "github"
       },
       "original": {
@@ -147,6 +162,7 @@
         "home-manager": "home-manager",
         "nixos-cn": "nixos-cn",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-nur": "nixpkgs-nur",
         "nixpkgs-stable": "nixpkgs-stable",
         "nvim": "nvim",
         "programs-sqlite": "programs-sqlite"

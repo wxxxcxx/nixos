@@ -1,15 +1,13 @@
-{ config, pkgs, nixos-cn, ... }@inputs:
-let
-  pkgs-cn = nixos-cn.legacyPackages.${pkgs.system};
-in{
+{ config, pkgs, ... }@inputs:
+{
   environment.systemPackages = with pkgs; [
     curl
+    element-desktop
     unzip
     neofetch
     neovim
     git
     jdk
-    hyprland
     gh
     gnome.gnome-tweaks
     gnome.gnome-settings-daemon 
@@ -17,12 +15,27 @@ in{
     gnomeExtensions.rounded-window-corners
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.dash-to-dock
+    gnomeExtensions.hot-edge
     gnomeExtensions.customize-ibus
     gnomeExtensions.transparent-top-bar 
     gnomeExtensions.just-perfection
     gnomeExtensions.night-theme-switcher
     gcc
-    pkgs-cn.netease-cloud-music
+    bat
+    bitwarden
+    clash-verge
+    google-chrome
+    jetbrains.idea-ultimate
+    jetbrains.datagrip
+    lf
+    lazydocker
+    lazygit
+    qq
+    obsidian
+    telegram-desktop
+    vscode
+    wezterm
+    yesplaymusic
   ];
 }
 

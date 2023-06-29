@@ -1,4 +1,4 @@
-{ config, pkgs, ... }@inputs:
+{ config, pkgs, pkgs-cn, ... }@inputs:
 let 
   dotfiles = inputs.dotfiles;
   nvim = inputs.nvim;
@@ -9,17 +9,9 @@ in {
   home.stateVersion = "23.05";
 
   home.packages = with pkgs; [
-    bat
-    bitwarden
-    clash-verge
-    google-chrome
-    lf
-    qq
-    rustup
-    telegram-desktop
-    vscode
-    wezterm
   ];
+
+  fonts.fontconfig.enable = true; 
 
   home.file = {
     # zsh

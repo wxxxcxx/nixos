@@ -1,10 +1,10 @@
-{ config, pkgs, pkgs-cn, nixos-cn, ... }@inputs:
+{ config, pkgs, ... }@inputs:
 {
+  system.stateVersion = "23.05";
   nix = {
     package = pkgs.nixUnstable;
-    settings.substituters = [ "https://nixos-cn.cachix.org" ];
-    settings.trusted-public-keys = [ "nixos-cn.cachix.org-1:L0jEaL6w7kwQOPlLoCR3ADx+E3Q8SEFEcB9Jaibl0Xg=" ];
     settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.auto-optimise-store = true;
   };
 
   nixpkgs.config = {
@@ -14,19 +14,21 @@
 
   imports = [ 
     ./packages.nix
+    ./packages-nur.nix
+    ./packages-cn.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # Nixos-CN
-    nixos-cn.nixosModules.nixos-cn-registries
-    nixos-cn.nixosModules.nixos-cn
   ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "mx";
   networking.networkmanager.enable = true;
+
+  sound.enable = true;
 
   time.timeZone = "Asia/Shanghai";
 
@@ -39,7 +41,6 @@
     ];
   };
 
-
   console.keyMap = "us";
   
   users.mutableUsers = true;
@@ -51,7 +52,6 @@
     extraGroups = ["wheel" "networkmanager"];
   };
 
-  system.stateVersion = "22.11"; # Did you read the comment?
 
   services = {
     openssh = {

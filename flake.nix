@@ -6,6 +6,7 @@
     substituters = [
       # replace official cache with a mirror located in China
       "https://mirrors.bfsu.edu.cn/nix-channels/store"
+      "https://nixos-cn.cachix.org"
       "https://cache.nixos.org/"
     ];
 
@@ -14,6 +15,7 @@
       "https://nix-community.cachix.org"
     ];
     extra-trusted-public-keys = [
+      "nixos-cn.cachix.org-1:L0jEaL6w7kwQOPlLoCR3ADx+E3Q8SEFEcB9Jaibl0Xg="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
@@ -22,6 +24,7 @@
     # Nixpkgs，即 NixOS 官方软件源
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs-nur.url = github:nix-community/NUR;
     nixos-cn = {
       url = "github:nixos-cn/flakes";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,7 +47,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, programs-sqlite, home-manager,  ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-nur, programs-sqlite, home-manager,  ... }@inputs:
   let 
     system = "x86_64-linux";
     specialArgs = inputs // {
