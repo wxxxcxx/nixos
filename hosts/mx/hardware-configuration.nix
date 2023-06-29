@@ -5,7 +5,7 @@
 
 {
   imports =
-    [ 
+    [
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
@@ -15,19 +15,22 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/84f1f056-91f2-4cb8-9382-e9ff544a0b1b";
+    {
+      device = "/dev/disk/by-uuid/84f1f056-91f2-4cb8-9382-e9ff544a0b1b";
       fsType = "btrfs";
       options = [ "subvol=@" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/84f1f056-91f2-4cb8-9382-e9ff544a0b1b";
+    {
+      device = "/dev/disk/by-uuid/84f1f056-91f2-4cb8-9382-e9ff544a0b1b";
       fsType = "btrfs";
       options = [ "subvol=@home" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/6D70-FCF4";
+    {
+      device = "/dev/disk/by-uuid/6D70-FCF4";
       fsType = "vfat";
     };
 
@@ -45,5 +48,5 @@
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   # high-resolution display
   # hardware.video.hidpi.enable = lib.mkDefault true;
-  hardware.pulseaudio.enable = lib.mkDefault  true;
+  hardware.pulseaudio.enable = lib.mkDefault true;
 }

@@ -10,14 +10,14 @@
     jdk
     gh
     gnome.gnome-tweaks
-    gnome.gnome-settings-daemon 
+    gnome.gnome-settings-daemon
     gnomeExtensions.appindicator
     gnomeExtensions.rounded-window-corners
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.dash-to-dock
     gnomeExtensions.hot-edge
     gnomeExtensions.customize-ibus
-    gnomeExtensions.transparent-top-bar 
+    gnomeExtensions.transparent-top-bar
     gnomeExtensions.just-perfection
     gnomeExtensions.night-theme-switcher
     gcc
@@ -36,6 +36,8 @@
     vscode
     wezterm
     yesplaymusic
+    rnix-lsp
+    nixpkgs-fmt
   ];
 }
 

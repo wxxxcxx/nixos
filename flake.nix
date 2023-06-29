@@ -47,32 +47,32 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-nur, programs-sqlite, home-manager,  ... }@inputs:
-  let 
-    system = "x86_64-linux";
-    specialArgs = inputs // {
-      pkgs-stable = import nixpkgs-stable {
-        system = system;
-        config.allowUnfree = true;
+  outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-nur, programs-sqlite, home-manager, ... }@inputs:
+    let
+      system = "x86_64-linux";
+      specialArgs = inputs // {
+        pkgs-stable = import nixpkgs-stable {
+          system = system;
+          config.allowUnfree = true;
+        };
+        pkgs-cn = inputs.nixos-cn.legacyPackages.${system};
       };
-      pkgs-cn = inputs.nixos-cn.legacyPackages.${system};
+    in
+    {
+      nixosConfigurations."mx" = nixpkgs.lib.nixosSystem {
+        system = system;
+        modules = [
+          ./hosts/mx
+          programs-sqlite.nixosModules.programs-sqlite
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.wx = import ./home;
+            home-manager.extraSpecialArgs = specialArgs;
+          }
+        ];
+        specialArgs = specialArgs;
+      };
     };
-  in
-  {
-    nixosConfigurations."mx" = nixpkgs.lib.nixosSystem {
-      system = system;
-      modules = [
-        ./hosts/mx
-        programs-sqlite.nixosModules.programs-sqlite
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.wx = import ./home;
-	        home-manager.extraSpecialArgs = specialArgs;
-        }
-      ];
-      specialArgs = specialArgs;
-    };
-  };
 }

@@ -1,8 +1,9 @@
 { config, pkgs, pkgs-cn, ... }@inputs:
-let 
+let
   dotfiles = inputs.dotfiles;
   nvim = inputs.nvim;
-in {
+in
+{
   home.username = "wx";
   home.homeDirectory = "/home/wx";
 
@@ -11,7 +12,7 @@ in {
   home.packages = with pkgs; [
   ];
 
-  fonts.fontconfig.enable = true; 
+  fonts.fontconfig.enable = true;
 
   home.file = {
     # zsh
