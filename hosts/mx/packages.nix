@@ -1,6 +1,7 @@
 { config, pkgs, ... }@inputs:
 {
   environment.systemPackages = with pkgs; [
+    busybox
     curl
     element-desktop
     unzip
@@ -28,6 +29,7 @@
     jetbrains.idea-ultimate
     jetbrains.datagrip
     lf
+    trash-cli
     lazydocker
     lazygit
     qq
@@ -36,8 +38,12 @@
     vscode
     wezterm
     yesplaymusic
+    
+    nix-index
     rnix-lsp
     nixpkgs-fmt
+
+    (pkgs.callPackage ../../packages/rime-cloverpinyin.nix { })
   ];
 }
 

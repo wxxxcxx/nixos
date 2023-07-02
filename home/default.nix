@@ -25,6 +25,13 @@ in
     ".config/lf".source = config.lib.file.mkOutOfStoreSymlink dotfiles + /lf;
     # nvim
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink nvim;
+    # rime
+    ".config/ibus/rime/default.custom.yaml".text = ''
+patch:
+  "menu/page_size": 8
+  schema_list:
+    - schema: clover
+    '';
   };
 
   home.sessionVariables = {
@@ -35,6 +42,13 @@ in
     name = "Numix-Cursor-Theme";
     size = 14;
     package = pkgs.numix-cursor-theme;
+  };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv = {
+      enable = true;
+    };
   };
 
   programs.home-manager.enable = true;

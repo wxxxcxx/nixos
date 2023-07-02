@@ -24,7 +24,10 @@
     # Nixpkgs，即 NixOS 官方软件源
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
-    nixpkgs-nur.url = github:nix-community/NUR;
+    nixpkgs-nur = {
+      url = github:nix-community/NUR;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-cn = {
       url = "github:nixos-cn/flakes";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,6 +41,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dotfiles = {
+      # url = "path:/home/wx/Workspace/Personal/dotfiles";
       url = "git+https://github.com/wxxxcxx/dotfiles";
       flake = false;
     };

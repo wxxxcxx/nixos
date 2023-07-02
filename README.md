@@ -12,4 +12,27 @@ sudo nix store gc --debug
 
 # 显示已经安装的 package
 nix-env -qa
+
+# 创建 FHS 环境
+(pkgs.buildFHSUserEnv ( pkgs.appimageTools.defaultFhsEnvArgs // {
+    name = "fhs";
+    targetPkgs = pkgs: (
+        (pkgs.appimageTools.defaultFhsEnvArgs.targetPkgs pkgs) ++ (with pkgs;[
+        pkg-config
+        ncurses
+        node2nix
+        nodejs
+        pnpm
+        yarn
+        ])
+    );
+    profile = "export FHS=1";
+    runScript = "bash";
+    extraOutputsToInstall = [ "dev" ];
+}))
 ```
+
+# Faqs
+
+Q: 如何像 `pacman -F` 一样查看文件属于哪个包？
+A: 使用 `nix-index` 包。
