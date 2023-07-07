@@ -1,4 +1,4 @@
-{ stdenv, lib, fetchurl, unzip, rime-data, librime, ... }:
+{ stdenv, lib, fetchurl, unzip, ... }:
 stdenv.mkDerivation rec {
   name = "rime-cloverpinyin";
   version = "1.1.4";
@@ -6,24 +6,18 @@ stdenv.mkDerivation rec {
     url = "https://github.com/fkxxyz/rime-cloverpinyin/releases/download/${version}/clover.schema-${version}.zip";
     sha256 = "sha256-Mn1qb5pndyRAGZzklh3a4KukAHgoUSLTJ1hP8Rb9R4s=";
   };
-  nativeBuildInputs = [ unzip rime-data librime ];
-  buildInputs = [ rime-data ];
+  nativeBuildInputs = [ unzip ];
   unpackPhase = ''
     unzip $src
   '';
-  buildPhase = ''
-    rime_deployer --compile clover.schema.yaml .  ${rime-data}/share/rime-data
-  '';
+
   installPhase = ''
     runHook preInstall
     echo $out
     ls -al .
-    rm build/*.txt
     rm -rf opencc
     mkdir -p $out/share/rime-data/build/
     install -Dm644 *.yaml -t $out/share/rime-data/
-    install -Dm644 build/* -t $out/share/rime-data/build/
-
     runHook postInstall
   '';
   meta = with lib; {

@@ -11,6 +11,8 @@
     allowUnfree = true;
     auto-optimise-store = true;
   };
+  nixpkgs.overlays = import ../../overlays inputs;
+
 
   imports = [ 
     ./packages.nix
@@ -20,7 +22,6 @@
     ./hardware-configuration.nix
   ];
 
-  # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -38,7 +39,6 @@
     enabled = "ibus";
     ibus.engines = with pkgs.ibus-engines; [
       rime
-      libpinyin
     ];
   };
 
@@ -128,7 +128,7 @@
     shellAliases = {
       ll = "ls -l";
       vim = "nvim";
-      update = "sudo nixos-rebuild switch";
+      update = "sudo -E nixos-rebuild switch";
     };
   };
 }

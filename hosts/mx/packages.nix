@@ -26,6 +26,7 @@
     bitwarden
     clash-verge
     google-chrome
+    chromium
     jetbrains.idea-ultimate
     jetbrains.datagrip
     lf
@@ -38,12 +39,11 @@
     vscode
     wezterm
     yesplaymusic
-    
-    nix-index
-    rnix-lsp
-    nixpkgs-fmt
-
-    (pkgs.callPackage ../../packages/rime-cloverpinyin.nix { })
+    discord
+    betterdiscord-installer
+    adw-gtk3
+    dynamic-wallpaper
+    libheif
   ];
 }
 

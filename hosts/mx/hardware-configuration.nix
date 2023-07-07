@@ -4,35 +4,43 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/84f1f056-91f2-4cb8-9382-e9ff544a0b1b";
-      fsType = "btrfs";
-      options = [ "subvol=@" ];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/424ba48f-12be-4a7a-a8a4-0226394a9f8d";
+    fsType = "btrfs";
+    options = [ "subvol=@" ];
+  };
 
-  fileSystems."/home" =
-    {
-      device = "/dev/disk/by-uuid/84f1f056-91f2-4cb8-9382-e9ff544a0b1b";
-      fsType = "btrfs";
-      options = [ "subvol=@home" ];
-    };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/424ba48f-12be-4a7a-a8a4-0226394a9f8d";
+    fsType = "btrfs";
+    options = [ "subvol=@home" ];
+  };
 
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/6D70-FCF4";
-      fsType = "vfat";
-    };
+  fileSystems."/tmp" = {
+    device = "/dev/disk/by-uuid/424ba48f-12be-4a7a-a8a4-0226394a9f8d";
+    fsType = "btrfs";
+    options = [ "subvol=@tmp" ];
+  };
+
+  fileSystems."/swap" = {
+    device = "/dev/disk/by-uuid/424ba48f-12be-4a7a-a8a4-0226394a9f8d";
+    fsType = "btrfs";
+    options = [ "subvol=@swap" ];
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/AFFE-9E80";
+    fsType = "vfat";
+  };
 
   swapDevices = [ ];
 

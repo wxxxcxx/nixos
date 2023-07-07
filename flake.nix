@@ -67,6 +67,7 @@
         system = system;
         modules = [
           ./hosts/mx
+          # (args: { nixpkgs.overlays = import ./overlays args; })
           programs-sqlite.nixosModules.programs-sqlite
           home-manager.nixosModules.home-manager
           {

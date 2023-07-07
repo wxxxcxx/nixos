@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-cn, ... }@inputs:
+{ config, pkgs, ... }@inputs:
 let
   dotfiles = inputs.dotfiles;
   nvim = inputs.nvim;
@@ -9,7 +9,15 @@ in
 
   home.stateVersion = "23.05";
 
+  imports = [
+    ./gnome.nix
+  ];
+
   home.packages = with pkgs; [
+    dconf2nix
+    nix-index
+    rnix-lsp
+    nixpkgs-fmt
   ];
 
   fonts.fontconfig.enable = true;
@@ -18,7 +26,8 @@ in
     # zsh
     ".zshrc".source = dotfiles + /zsh/zshrc;
     ".zshenv".source = dotfiles + /zsh/zshenv;
-    ".config/zsh".source = config.lib.file.mkOutOfStoreSymlink dotfiles + /zsh/zsh;
+    ".config/zsh/".source = dotfiles + /zsh/zsh;
+    ".config/zsh/".recursive = true;
     # wezterm
     ".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink dotfiles + /wezterm;
     # lf
@@ -27,10 +36,10 @@ in
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink nvim;
     # rime
     ".config/ibus/rime/default.custom.yaml".text = ''
-patch:
-  "menu/page_size": 8
-  schema_list:
-    - schema: clover
+      patch:
+        "menu/page_size": 8
+        schema_list:
+          - schema: clover
     '';
   };
 
@@ -38,10 +47,18 @@ patch:
     EDITOR = "nvim";
   };
 
+
+
   gtk.cursorTheme = {
     name = "Numix-Cursor-Theme";
     size = 14;
     package = pkgs.numix-cursor-theme;
+  };
+
+  programs.git = {
+    enable = true;
+    userName  = "Wx";
+    userEmail = "wxxxcxx@gmail.com";
   };
 
   programs.direnv = {
