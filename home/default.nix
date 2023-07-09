@@ -14,6 +14,27 @@ in
   ];
 
   home.packages = with pkgs; [
+    element-desktop
+    gh
+    bat
+    bitwarden
+    clash-verge
+    google-chrome
+    chromium
+    jetbrains.idea-ultimate
+    jetbrains.datagrip
+    lf
+    trash-cli
+    lazydocker
+    lazygit
+    qq
+    obsidian
+    telegram-desktop
+    vscode
+    wezterm
+    yesplaymusic
+    discord
+    betterdiscordctl
     postman
     dconf2nix
     nix-index

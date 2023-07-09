@@ -3,61 +3,11 @@
   environment.systemPackages = with pkgs; [
     busybox
     curl
-    element-desktop
     unzip
     neofetch
     neovim
-    git
-    jdk
-    gh
-    gnome.gnome-tweaks
-    gnome.gnome-settings-daemon
-    gnomeExtensions.appindicator
-    gnomeExtensions.rounded-window-corners
-    gnomeExtensions.clipboard-indicator
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.hot-edge
-    gnomeExtensions.customize-ibus
-    gnomeExtensions.transparent-top-bar
-    gnomeExtensions.just-perfection
-    gnomeExtensions.night-theme-switcher
-    gnomeExtensions.color-picker
-    gnomeExtensions.keep-awake
     gcc
-    bat
-    bitwarden
-    clash-verge
-    google-chrome
-    chromium
-    jetbrains.idea-ultimate
-    jetbrains.datagrip
-    lf
-    trash-cli
-    lazydocker
-    lazygit
-    qq
-    obsidian
-    telegram-desktop
-    vscode
-    wezterm
-    yesplaymusic
-    discord
-    betterdiscordctl
-    adw-gtk3
-    dynamic-wallpaper
   ];
-  environment.gnome.excludePackages = with pkgs.gnome; [
-    cheese
-    gnome-music
-    gedit
-    epiphany
-    geary
-    evince
-    totem
-    tali
-    iagno
-    hitori
-    atomix
-  ];
+
 }
 
