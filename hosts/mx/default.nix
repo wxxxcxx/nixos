@@ -14,7 +14,7 @@
   nixpkgs.overlays = import ../../overlays inputs;
 
 
-  imports = [ 
+  imports = [
     ./packages.nix
     ./packages-nur.nix
     ./packages-cn.nix
@@ -22,9 +22,13 @@
     ./hardware-configuration.nix
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 21;
+  boot.loader.systemd-boot.consoleMode = "max";
+
+  boot.loader.systemd-boot.netbootxyz.enable = true;
 
   networking.hostName = "mx";
   networking.networkmanager.enable = true;
@@ -33,7 +37,7 @@
 
   time.timeZone = "Asia/Shanghai";
 
-  i18n.supportedLocales = ["en_US.UTF-8/UTF-8"];
+  i18n.supportedLocales = [ "en_US.UTF-8/UTF-8" ];
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.inputMethod = {
     enabled = "ibus";
@@ -43,14 +47,19 @@
   };
 
   console.keyMap = "us";
-  
+
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "btrfs";
+  };
+
   users.mutableUsers = true;
   users.users.wx = {
     isNormalUser = true;
     home = "/home/wx";
     shell = pkgs.zsh;
     description = "Wx";
-    extraGroups = ["wheel" "networkmanager"];
+    extraGroups = [ "wheel" "networkmanager" "docker" ];
   };
 
 
@@ -63,7 +72,7 @@
     };
     xserver = {
       enable = true;
-      videoDrivers = ["nvidia"];
+      videoDrivers = [ "nvidia" ];
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };
@@ -101,7 +110,7 @@
       };
       antialias = true;
       defaultFonts = {
-        emoji = ["Noto Color Emoi"];
+        emoji = [ "Noto Color Emoi" ];
         monospace = [
           "Source Code Pro"
           "Noto Sans Mono"
@@ -128,7 +137,7 @@
     shellAliases = {
       ll = "ls -l";
       vim = "nvim";
-      update = "sudo -E nixos-rebuild switch";
+      update = "sudo nixos-rebuild switch";
     };
   };
 }

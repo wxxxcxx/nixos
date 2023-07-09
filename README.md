@@ -35,4 +35,18 @@ nix-env -qa
 # Faqs
 
 Q: 如何像 `pacman -F` 一样查看文件属于哪个包？
+
 A: 使用 `nix-index` 包。
+
+Q: 如何本地添加 flake 文件，但是将其不包含在提交中？
+
+A：
+
+```
+git add --intent-to-add flake.nix
+git update-index --skip-worktree flake.nix
+# 查看 skip-worktree 标识的文件
+git ls-files -v | grep -i ^S   
+# 取消 skip-worktree 标识
+git update-index --no-skip-worktree flake.nix
+```

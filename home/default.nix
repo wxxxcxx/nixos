@@ -10,10 +10,11 @@ in
   home.stateVersion = "23.05";
 
   imports = [
-    ./gnome.nix
+    # ./gnome.nix
   ];
 
   home.packages = with pkgs; [
+    postman
     dconf2nix
     nix-index
     rnix-lsp

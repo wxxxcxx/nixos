@@ -26,7 +26,6 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
     nixpkgs-nur = {
       url = github:nix-community/NUR;
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-cn = {
       url = "github:nixos-cn/flakes";
@@ -67,7 +66,6 @@
         system = system;
         modules = [
           ./hosts/mx
-          # (args: { nixpkgs.overlays = import ./overlays args; })
           programs-sqlite.nixosModules.programs-sqlite
           home-manager.nixosModules.home-manager
           {

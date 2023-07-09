@@ -21,6 +21,8 @@
     gnomeExtensions.transparent-top-bar
     gnomeExtensions.just-perfection
     gnomeExtensions.night-theme-switcher
+    gnomeExtensions.color-picker
+    gnomeExtensions.keep-awake
     gcc
     bat
     bitwarden
@@ -40,10 +42,22 @@
     wezterm
     yesplaymusic
     discord
-    betterdiscord-installer
+    betterdiscordctl
     adw-gtk3
     dynamic-wallpaper
-    libheif
+  ];
+  environment.gnome.excludePackages = with pkgs.gnome; [
+    cheese
+    gnome-music
+    gedit
+    epiphany
+    geary
+    evince
+    totem
+    tali
+    iagno
+    hitori
+    atomix
   ];
 }
 
