@@ -50,6 +50,9 @@ in
     ".zshenv".source = dotfiles + /zsh/zshenv;
     ".config/zsh/".source = dotfiles + /zsh/zsh;
     ".config/zsh/".recursive = true;
+    # ssh 
+    ".ssh/".source = dotfiles + /ssh;
+    ".ssh/".recursive = true;
     # wezterm
     ".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink dotfiles + /wezterm;
     # lf
@@ -65,11 +68,9 @@ in
     '';
   };
 
-  home.sessionVariables = {
+  systemd.user.sessionVariables = {
     EDITOR = "nvim";
   };
-
-
 
   gtk.cursorTheme = {
     name = "Numix-Cursor-Theme";

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }@inputs:
+{ config, pkgs, agenix, ... }@inputs:
 {
 
   sound.enable = true;
@@ -32,6 +32,22 @@
       vim = "nvim";
       update = "sudo nixos-rebuild switch";
     };
+  };
+
+  environment.systemPackages = [
+    pkgs.age
+    agenix.packages.x86_64-linux.default
+  ];
+
+  age.secrets.proxyConfig = {
+    file = ../../secrets/proxy.json.age;
+    path = "/etc/proxy/proxy.json";
+    mode = "666";
+  };
+  
+  services.proxy = {
+    enable = true;
+    config = config.age.secrets.proxyConfig.path;
   };
 }
 

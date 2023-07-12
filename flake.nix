@@ -39,6 +39,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix.url = "github:ryantm/agenix";
     dotfiles = {
       # url = "path:/home/wx/Workspace/Personal/dotfiles";
       url = "git+https://github.com/wxxxcxx/dotfiles";
@@ -50,7 +51,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-nur, programs-sqlite, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-nur, programs-sqlite, home-manager, agenix, ... }@inputs:
     let
       system = "x86_64-linux";
       specialArgs = inputs // {
@@ -68,6 +69,7 @@
           ./hosts/mx
           programs-sqlite.nixosModules.programs-sqlite
           home-manager.nixosModules.home-manager
+          agenix.nixosModules.default
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

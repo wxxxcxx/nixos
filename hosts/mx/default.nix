@@ -24,6 +24,7 @@
     ./packages.nix
     ./packages-nur.nix
     ./packages-cn.nix
+    ./transproxy.nix
     ./hardware-configuration.nix
   ];
 }
