@@ -7,8 +7,6 @@
     unzip
     neofetch
     neovim
-    gcc
   ];
-
 }
 

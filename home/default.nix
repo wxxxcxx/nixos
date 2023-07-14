@@ -15,7 +15,7 @@ in
 
   home.packages = with pkgs; [
     element-desktop
-    gh
+    gh 
     bat
     bitwarden
     clash-verge
