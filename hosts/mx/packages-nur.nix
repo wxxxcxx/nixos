@@ -5,6 +5,7 @@
   ];
 
   environment.systemPackages = [
+    # config.nur.repos.xddxdd.wine-wechat
   ];
 }
 

@@ -49,5 +49,7 @@
     enable = true;
     config = config.age.secrets.proxyConfig.path;
   };
+
+  hardware.pulseaudio.enable = true;
 }
 

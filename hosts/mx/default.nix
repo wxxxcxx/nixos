@@ -3,7 +3,6 @@
   system.stateVersion = "23.05";
   nix = {
     package = pkgs.nixUnstable;
-    settings.experimental-features = [ "nix-command" "flakes" ];
     settings.auto-optimise-store = true;
   };
 
@@ -12,7 +11,6 @@
     auto-optimise-store = true;
   };
   nixpkgs.overlays = import ../../overlays inputs;
-
 
   imports = [
     ./boot.nix
@@ -23,7 +21,6 @@
     ./font.nix
     ./packages.nix
     ./packages-nur.nix
-    ./packages-cn.nix
     ./transproxy.nix
     ./hardware-configuration.nix
   ];
