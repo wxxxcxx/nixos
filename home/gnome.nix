@@ -5,39 +5,14 @@ with lib.hm.gvariant;
 
 {
   dconf.settings = {
-    "ca/desrt/dconf-editor" = {
-      saved-pathbar-path = "/";
-      saved-view = "/";
-      window-height = 500;
-      window-is-maximized = false;
-      window-width = 540;
-    };
-
-    "com/github/GradienceTeam/Gradience" = {
-      first-run = false;
-      last-opened-version = "0.4.1";
-      user-flatpak-theming-gtk4 = true;
-      window-fullscreen = false;
-      window-height = 700;
-      window-maximized = false;
-      window-width = 1000;
-    };
-
     "org/gnome/Console" = {
-      last-window-size = mkTuple [ 1140 780 ];
-    };
-
-    "org/gnome/Geary" = {
-      migrated-config = true;
+      last-window-size = mkTuple [ 1200 800 ];
+      theme = "auto";
     };
 
     "org/gnome/control-center" = {
       last-panel = "background";
       window-state = mkTuple [ 980 640 ];
-    };
-
-    "org/gnome/desktop/app-folders" = {
-      folder-children = [ "Utilities" "YaST" ];
     };
 
     "org/gnome/desktop/app-folders/folders/Utilities" = {
@@ -47,24 +22,8 @@ with lib.hm.gvariant;
       translate = true;
     };
 
-    "org/gnome/desktop/app-folders/folders/YaST" = {
-      categories = [ "X-SuSE-YaST" ];
-      name = "suse-yast.directory";
-      translate = true;
-    };
-
-    "org/gnome/desktop/background" = {
-      color-shading-type = "solid";
-      picture-options = "zoom";
-      picture-uri = "/home/wx/.config/background";
-      picture-uri-dark = "/home/wx/.config/background";
-      primary-color = "#3465a4";
-      secondary-color = "#000000";
-    };
-
     "org/gnome/desktop/input-sources" = {
-      mru-sources = [ (mkTuple [ "ibus" "rime" ]) (mkTuple [ "xkb" "us" ]) ];
-      per-window = true;
+      mru-sources = [ (mkTuple [ "xkb" "us" ]) (mkTuple [ "ibus" "rime" ]) ];
       sources = [ (mkTuple [ "xkb" "us" ]) (mkTuple [ "ibus" "rime" ]) ];
       xkb-options = [ "terminate:ctrl_alt_bksp" ];
     };
@@ -73,40 +32,15 @@ with lib.hm.gvariant;
       color-scheme = "prefer-dark";
       cursor-theme = "Adwaita";
       enable-animations = true;
+      enable-hot-corners = false;
       font-antialiasing = "grayscale";
       font-hinting = "slight";
-      gtk-theme = "adw-gtk3-dark";
       icon-theme = "Adwaita";
-      text-scaling-factor = 1.2;
+      text-scaling-factor = 1.25;
     };
 
-    "org/gnome/desktop/notifications" = {
-      application-children = [ "org-gnome-console" "code" "gnome-power-panel" "clash-verge" ];
-      show-banners = false;
-    };
-
-    "org/gnome/desktop/notifications/application/clash-verge" = {
-      application-id = "clash-verge.desktop";
-    };
-
-    "org/gnome/desktop/notifications/application/code" = {
-      application-id = "code.desktop";
-    };
-
-    "org/gnome/desktop/notifications/application/gnome-power-panel" = {
-      application-id = "gnome-power-panel.desktop";
-    };
-
-    "org/gnome/desktop/notifications/application/org-gnome-console" = {
-      application-id = "org.gnome.Console.desktop";
-    };
-
-    "org/gnome/desktop/screensaver" = {
-      color-shading-type = "solid";
-      picture-options = "zoom";
-      picture-uri = "file:///home/wx/.local/share/backgrounds/Mountain/Mountain-l.png";
-      primary-color = "#3465a4";
-      secondary-color = "#000000";
+    "org/gnome/desktop/session" = {
+      idle-delay = mkUint32 300;
     };
 
     "org/gnome/desktop/wm/preferences" = {
@@ -118,6 +52,13 @@ with lib.hm.gvariant;
       migrated = true;
     };
 
+    "org/gnome/mutter" = {
+      attach-modal-dialogs = true;
+      center-new-windows = true;
+      dynamic-workspaces = true;
+      edge-tiling = true;
+    };
+
     "org/gnome/nautilus/preferences" = {
       default-folder-viewer = "icon-view";
       migrated-gtk-settings = true;
@@ -126,32 +67,48 @@ with lib.hm.gvariant;
 
     "org/gnome/nautilus/window-state" = {
       initial-size = mkTuple [ 890 550 ];
+      maximized = false;
     };
 
-    "org/gnome/portal/filechooser/org/telegram/desktop" = {
-      last-folder-path = "/home/wx/Downloads";
+    "org/gnome/settings-daemon/plugins/power" = {
+      idle-dim = true;
+      sleep-inactive-ac-type = "suspend";
+      sleep-inactive-battery-type = "suspend";
     };
 
     "org/gnome/shell" = {
-      enabled-extensions = [ "hotedge@jonathan.jdoda.ca" "dash-to-dock@micxgx.gmail.com" "customize-ibus@hollowman.ml" "clipboard-indicator@tudmotu.com" "appindicatorsupport@rgcjonas.gmail.com" "just-perfection-desktop@just-perfection" "nightthemeswitcher@romainvigier.fr" "user-theme@gnome-shell-extensions.gcampax.github.com" "transparent-top-bar@zhanghai.me" ];
-      favorite-apps = [ "org.gnome.Nautilus.desktop" "google-chrome.desktop" "org.gnome.Console.desktop" "code.desktop" ];
+      app-picker-layout = "[{'bitwarden.desktop': <{'position': <0>}>, 'org.gnome.Contacts.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'org.gnome.clocks.desktop': <{'position': <3>}>, 'org.gnome.Maps.desktop': <{'position': <4>}>, 'clash-verge.desktop': <{'position': <5>}>, 'org.gnome.Photos.desktop': <{'position': <6>}>, 'datagrip.desktop': <{'position': <7>}>, 'org.gnome.Calculator.desktop': <{'position': <8>}>, 'element-desktop.desktop': <{'position': <9>}>, 'simple-scan.desktop': <{'position': <10>}>, 'org.gnome.Settings.desktop': <{'position': <11>}>, 'gnome-system-monitor.desktop': <{'position': <12>}>, 'org.gnome.Extensions.desktop': <{'position': <13>}>, 'htop.desktop': <{'position': <14>}>, 'Utilities': <{'position': <15>}>, 'lf.desktop': <{'position': <16>}>, 'yelp.desktop': <{'position': <17>}>, 'nvim.desktop': <{'position': <18>}>, 'nixos-manual.desktop': <{'position': <19>}>}, {'nvidia-settings.desktop': <{'position': <0>}>, 'postman.desktop': <{'position': <1>}>, 'qq.desktop': <{'position': <2>}>, 'org.gnome.Tour.desktop': <{'position': <3>}>, 'org.gnome.TextEditor.desktop': <{'position': <4>}>, 'org.wezfurlong.wezterm.desktop': <{'position': <5>}>, 'xterm.desktop': <{'position': <6>}>, 'yesplaymusic.desktop': <{'position': <7>}>, 'org.gnome.Calendar.desktop': <{'position': <8>}>}]";
+      command-history = [ "r" ];
+      disable-user-extensions = false;
+      disabled-extensions = [ "order-extensions@wa4557.github.com" ];
+      enabled-extensions = [ "appindicatorsupport@rgcjonas.gmail.com" "clipboard-indicator@tudmotu.com" "color-picker@tuberry" "customize-ibus@hollowman.ml" "dash-to-dock@micxgx.gmail.com" "hotedge@jonathan.jdoda.ca" "just-perfection-desktop@just-perfection" "KeepAwake@jepfa.de" "nightthemeswitcher@romainvigier.fr" "transparent-top-bar@zhanghai.me" "user-theme@gnome-shell-extensions.gcampax.github.com" "speed@eexpss.gmail.com" "blur-my-shell@aunetx" "places-menu@gnome-shell-extensions.gcampax.github.com" "rounded-window-corners@yilozt" "show-desktop-button@amivaleo" "scroll-workspaces@gfxmonk.net" "trayIconsReloaded@selfmade.pl" "simplenetspeed@biji.extension" "InternetSpeedMeter@alshakib.dev" "extension-list@tu.berry" "caffeine@patapon.info" ];
+      favorite-apps = [ "org.gnome.Nautilus.desktop" "google-chrome.desktop" "chromium-browser.desktop" "org.gnome.Console.desktop" "code.desktop" "idea-ultimate.desktop" "obsidian.desktop" "org.telegram.desktop.desktop" "discord.desktop" ];
       welcome-dialog-last-shown-version = "44.2";
     };
 
+    "org/gnome/shell/extensions/caffeine" = {
+      countdown-timer = 0;
+      enable-fullscreen = false;
+      indicator-position-max = 3;
+      show-indicator = "always";
+    };
+
     "org/gnome/shell/extensions/customize-ibus" = {
-      input-mode-remember = mkUint32 0;
-      use-input-indicator = false;
+      input-mode-list = "{'null': true, 'kgx': true, 'google-chrome': true, 'code': true, 'telegramdesktop': true, '': true, 'gnome-extensions-app': true, 'org.gnome.shell.extensions': true, 'ssh-askpass': true, 'obsidian': true, 'electron': true, 'discord': true, 'nvidia-settings': true, 'gnome-control-center': true, 'yesplaymusic': true, 'code-url-handler': true, 'gnome-tweaks': true, 'org.gnome.nautilus': true}";
     };
 
     "org/gnome/shell/extensions/hotedge" = {
       fallback-in-use = false;
-      pressure-threshold = mkUint32 50;
-      suppress-activation-when-fullscreen = true;
     };
 
     "org/gnome/shell/extensions/just-perfection" = {
       accessibility-menu = false;
+      activities-button = false;
       startup-status = 0;
+    };
+
+    "org/gnome/shell/extensions/nightthemeswitcher/commands" = {
+      enabled = true;
     };
 
     "org/gnome/shell/extensions/nightthemeswitcher/cursor-variants" = {
@@ -180,36 +137,26 @@ with lib.hm.gvariant;
       nightthemeswitcher-ondemand-keybinding = [ "<Shift><Super>t" ];
     };
 
+    "org/gnome/shell/extensions/rounded-window-corners" = {
+      border-color = mkTuple [ 0.23999999463558197 0.23999999463558197 ];
+      border-width = 1;
+      custom-rounded-corner-settings = "@a{sv} {}";
+      focused-shadow = "{'vertical_offset': 4, 'horizontal_offset': 0, 'blur_offset': 28, 'spread_radius': 4, 'opacity': 60}";
+      global-rounded-corner-settings = "{'padding': <{'left': <uint32 0>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <false>, 'fullscreen': <false>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>, 'enabled': <true>}";
+      settings-version = mkUint32 5;
+      unfocused-shadow = "{'horizontal_offset': 0, 'vertical_offset': 2, 'blur_offset': 12, 'spread_radius': -1, 'opacity': 65}";
+    };
+
+    "org/gnome/shell/extensions/simplenetspeed" = {
+      mode = 2;
+    };
+
     "org/gnome/shell/extensions/user-theme" = {
       name = "";
     };
 
-    "org/gnome/shell/world-clocks" = {
-      locations = "@av []";
-    };
-
     "org/gnome/tweaks" = {
       show-extensions-notice = false;
-    };
-
-    "org/gtk/gtk4/settings/color-chooser" = {
-      custom-colors = [ (mkTuple [ 0.1882352977991104 0.1882352977991104 ]) ];
-      selected-color = mkTuple [ true 0.10196078568696976 ];
-    };
-
-    "org/gtk/gtk4/settings/file-chooser" = {
-      date-format = "regular";
-      location-mode = "path-bar";
-      show-hidden = false;
-      show-size-column = true;
-      show-type-column = true;
-      sidebar-width = 140;
-      sort-column = "name";
-      sort-directories-first = false;
-      sort-order = "ascending";
-      type-format = "category";
-      view-type = "list";
-      window-size = mkTuple [ 856 534 ];
     };
 
     "org/gtk/settings/file-chooser" = {
@@ -218,14 +165,13 @@ with lib.hm.gvariant;
       show-hidden = false;
       show-size-column = true;
       show-type-column = true;
-      sidebar-width = 177;
+      sidebar-width = 192;
       sort-column = "name";
       sort-directories-first = false;
       sort-order = "ascending";
       type-format = "category";
-      window-position = mkTuple [ 463 339 ];
-      window-size = mkTuple [ 1026 784 ];
+      window-position = mkTuple [ 348 40 ];
+      window-size = mkTuple [ 1000 800 ];
     };
-
   };
 }
