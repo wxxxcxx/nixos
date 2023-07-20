@@ -20,6 +20,7 @@
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
     gnome.gnome-settings-daemon
+    adw-gtk3
     gnomeExtensions.appindicator
     gnomeExtensions.rounded-window-corners
     gnomeExtensions.clipboard-indicator
@@ -30,8 +31,11 @@
     gnomeExtensions.just-perfection
     gnomeExtensions.night-theme-switcher
     gnomeExtensions.color-picker
-    gnomeExtensions.keep-awake
-    adw-gtk3
+    gnomeExtensions.caffeine
+    gnomeExtensions.show-desktop-button
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.top-panel-workspace-scroll
+    gnomeExtensions.internet-speed-meter
   ];
 }
 
