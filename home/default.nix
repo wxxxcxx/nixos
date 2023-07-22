@@ -14,6 +14,7 @@ in
   ];
 
   home.packages = with pkgs; [
+    cryptomator
     element-desktop
     gh 
     bat
@@ -40,6 +41,7 @@ in
     nix-index
     rnix-lsp
     nixpkgs-fmt
+    mpv
   ];
 
   fonts.fontconfig.enable = true;
@@ -66,6 +68,9 @@ in
         schema_list:
           - schema: clover
     '';
+    # mpv
+    ".config/mpv".source = dotfiles + /mpv;
+    ".config/mpv".recursive = true;
   };
 
   systemd.user.sessionVariables = {

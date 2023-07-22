@@ -4,6 +4,7 @@
   nix = {
     package = pkgs.nixUnstable;
     settings.auto-optimise-store = true;
+    settings.experimental-features = [ "nix-command" "flakes" ];
   };
 
   nixpkgs.config = {

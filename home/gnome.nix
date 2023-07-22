@@ -28,6 +28,10 @@ with lib.hm.gvariant;
       xkb-options = [ "terminate:ctrl_alt_bksp" ];
     };
 
+    "/org/gnome/desktop/wm/keybindings" = {
+      close = [ "<Super>q" ];
+    };
+
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       cursor-theme = "Adwaita";
@@ -40,7 +44,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/session" = {
-      idle-delay = mkUint32 300;
+      idle-delay = mkUint32 900;
     };
 
     "org/gnome/desktop/wm/preferences" = {
@@ -93,8 +97,16 @@ with lib.hm.gvariant;
       show-indicator = "always";
     };
 
+    "/org/gnome/shell/extensions/dash-to-dock" = {
+      hot-keys = false;
+      running-indicator-style = "DOTS";
+    };
+
     "org/gnome/shell/extensions/customize-ibus" = {
-      input-mode-list = "{'null': true, 'kgx': true, 'google-chrome': true, 'code': true, 'telegramdesktop': true, '': true, 'gnome-extensions-app': true, 'org.gnome.shell.extensions': true, 'ssh-askpass': true, 'obsidian': true, 'electron': true, 'discord': true, 'nvidia-settings': true, 'gnome-control-center': true, 'yesplaymusic': true, 'code-url-handler': true, 'gnome-tweaks': true, 'org.gnome.nautilus': true}";
+      enable-orientation = true;
+      candidate-orientation = 1;
+      lookup-table-orientation = 0;
+      lookup-table-orientation = true;
     };
 
     "org/gnome/shell/extensions/hotedge" = {

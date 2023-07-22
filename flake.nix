@@ -32,7 +32,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-nur, programs-sqlite, home-manager, agenix, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, programs-sqlite, home-manager, agenix, ... }@inputs:
     let
       system = "x86_64-linux";
       specialArgs = inputs // {

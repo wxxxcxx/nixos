@@ -1,4 +1,4 @@
-{ config, nixpkgs, nixpkgs-nur, ... }@inputs:
+{ config, nixpkgs-nur, ... }@inputs:
 {
   imports = [
     nixpkgs-nur.nixosModules.nur
