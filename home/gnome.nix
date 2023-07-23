@@ -30,6 +30,7 @@ with lib.hm.gvariant;
 
     "/org/gnome/desktop/wm/keybindings" = {
       close = [ "<Super>q" ];
+      activate-window-menu = [ ];
     };
 
     "org/gnome/desktop/interface" = {
