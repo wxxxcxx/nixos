@@ -16,7 +16,7 @@ in
   home.packages = with pkgs; [
     cryptomator
     element-desktop
-    gh 
+    gh
     bat
     bitwarden
     clash-verge
@@ -74,6 +74,9 @@ in
     ".config/mpv".recursive = true;
   };
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
   systemd.user.sessionVariables = {
     EDITOR = "nvim";
   };
@@ -86,7 +89,7 @@ in
 
   programs.git = {
     enable = true;
-    userName  = "Wx";
+    userName = "Wx";
     userEmail = "wxxxcxx@gmail.com";
   };
 
@@ -96,6 +99,5 @@ in
       enable = true;
     };
   };
-
   programs.home-manager.enable = true;
 }

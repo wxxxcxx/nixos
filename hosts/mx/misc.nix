@@ -24,20 +24,13 @@
     storageDriver = "btrfs";
   };
 
-
-  programs.zsh = {
-    enable = true;
-    shellAliases = {
-      ll = "ls -l";
-      vim = "nvim";
-      update = "sudo nixos-rebuild switch";
-    };
-  };
-
   environment.systemPackages = [
     pkgs.age
     agenix.packages.x86_64-linux.default
   ];
+  environment.variables = {
+    EDITOR = "nvim";
+  };
 
   age.secrets.proxyConfig = {
     file = ../../secrets/proxy.json.age;

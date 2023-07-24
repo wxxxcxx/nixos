@@ -1,7 +1,7 @@
 { config, ... }:
 
 (self: super: {
-  neovim = super.neovim.overrideAttrs (finalAttrs: originAttrs: {
-    buildInputs = originAttrs.buildInputs ++ [ super.gcc ];
+  neovim = super.neovim.overrideAttrs (finalAttrs: previousAttrs: {
+    buildInputs = previousAttrs.buildInputs ++ [ super.gcc ];
   });
 })

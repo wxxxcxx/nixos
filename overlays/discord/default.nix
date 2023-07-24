@@ -1,8 +1,8 @@
 { config, ... }:
 
 (self: super: {
-  discord = super.discord.overrideAttrs (finalAttrs: originAttrs: {
-    desktopItem = originAttrs.desktopItem.override {
+  discord = super.discord.overrideAttrs (finalAttrs: buildInputs: {
+    desktopItem = buildInputs.desktopItem.override {
       exec = "Discord --start-minimized";
     };
   });
