@@ -1,7 +1,12 @@
 { config, ... }:
 
 (self: super: {
-  neovim = super.neovim.overrideAttrs (finalAttrs: previousAttrs: {
-    buildInputs = previousAttrs.buildInputs ++ [ super.gcc ];
-  });
+  neovim = super.buildEnv {
+    name = "neovim";
+    paths = with super; [
+      neovim
+      gcc
+      gnutar
+    ];
+  };
 })

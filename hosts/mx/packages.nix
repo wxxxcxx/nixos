@@ -8,6 +8,7 @@
     unzip
     neofetch
     neovim
+    git
   ];
 }
 

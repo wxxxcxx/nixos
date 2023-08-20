@@ -16,42 +16,42 @@
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/ba20fedb-2d69-4d54-9498-f8172157db69";
+      device = "/dev/disk/by-label/nixos";
       fsType = "btrfs";
       options = [ "subvol=@" "noatime" "discard=async" "compress=zstd" ];
     };
 
   fileSystems."/home" =
     {
-      device = "/dev/disk/by-uuid/ba20fedb-2d69-4d54-9498-f8172157db69";
+      device = "/dev/disk/by-label/nixos";
       fsType = "btrfs";
       options = [ "subvol=@home" "noatime" "discard=async" "compress=zstd" ];
     };
 
   fileSystems."/srv" =
     {
-      device = "/dev/disk/by-uuid/ba20fedb-2d69-4d54-9498-f8172157db69";
+      device = "/dev/disk/by-label/nixos";
       fsType = "btrfs";
       options = [ "subvol=@srv" "noatime" "discard=async" "compress=zstd"  ];
     };
 
   fileSystems."/tmp" =
     {
-      device = "/dev/disk/by-uuid/ba20fedb-2d69-4d54-9498-f8172157db69";
+      device = "/dev/disk/by-label/nixos";
       fsType = "btrfs";
       options = [ "subvol=@tmp" "noatime" "discard=async" "compress=zstd" ];
     };
 
   fileSystems."/swap" =
     {
-      device = "/dev/disk/by-uuid/ba20fedb-2d69-4d54-9498-f8172157db69";
+      device = "/dev/disk/by-label/nixos";
       fsType = "btrfs";
       options = [ "subvol=@swap" "noatime" "discard=async" "compress=zstd" ];
     };
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/2733-66F1";
+      device = "/dev/disk/by-label/boot";
       fsType = "vfat";
     };
 
@@ -62,12 +62,7 @@
     }
   ];
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp0s31f6.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";

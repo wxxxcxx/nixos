@@ -10,7 +10,7 @@ in
   home.stateVersion = "23.05";
 
   imports = [
-    # ./gnome.nix
+    ./gnome.nix
   ];
 
   home.packages = with pkgs; [
@@ -89,7 +89,7 @@ in
 
   programs.git = {
     enable = true;
-    userName = "Wx";
+    userName  = "Wx";
     userEmail = "wxxxcxx@gmail.com";
   };
 

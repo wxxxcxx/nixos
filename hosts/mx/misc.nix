@@ -23,6 +23,10 @@
     enable = true;
     storageDriver = "btrfs";
   };
+  
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  users.extraGroups.vboxusers.members = [ "wx" ];
 
   environment.systemPackages = [
     pkgs.age
@@ -38,7 +42,7 @@
     mode = "666";
   };
   
-  services.proxy = {
+  services.transproxy = {
     enable = true;
     config = config.age.secrets.proxyConfig.path;
   };

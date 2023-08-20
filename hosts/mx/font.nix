@@ -1,8 +1,8 @@
 { config, pkgs, ... }@inputs: {
   fonts = {
-    enableDefaultFonts = true;
+    enableDefaultPackages = true;
 
-    fonts = with pkgs; [
+    packages = with pkgs; [
       source-sans
       source-serif
       source-han-sans

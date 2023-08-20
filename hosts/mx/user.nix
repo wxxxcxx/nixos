@@ -15,7 +15,6 @@
     shellAliases = {
       ll = "ls -l";
       vim = "nvim";
-      update = "sudo nixos-rebuild switch";
     };
   };
 }

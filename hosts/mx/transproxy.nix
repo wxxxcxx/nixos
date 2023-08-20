@@ -2,7 +2,7 @@
 let
   inherit (pkgs) gnugrep iptables busybox;
   inherit (lib) optionalString mkIf;
-  serviceConfig = config.services.proxy;
+  serviceConfig = config.services.transproxy;
 
   chainName = "PROXY";
 
@@ -34,7 +34,7 @@ let
 in
 {
   options = {
-    services.proxy = opts;
+    services.transproxy = opts;
   };
 
   config = mkIf (serviceConfig.enable) {
@@ -44,10 +44,10 @@ in
       group = "nogroup";
     };
 
-    systemd.services.proxy =
+    systemd.services.transproxy =
       let
 
-        preStartScript = pkgs.writeShellScript "proxy-pre-start" ''
+        preStartScript = pkgs.writeShellScript "transproxy-pre-start" ''
           ${busybox}/bin/ip rule add fwmark 1 table 100
           ${busybox}/bin/ip route add local 0.0.0.0/0 dev lo table 100
 
@@ -88,7 +88,7 @@ in
           ${iptables}/bin/iptables -t mangle -A OUTPUT -p udp -j ${chainName}_LOCAL
         '';
 
-        postStopScript = pkgs.writeShellScript "proxy-post-stop" ''
+        postStopScript = pkgs.writeShellScript "transproxy-post-stop" ''
           ${busybox}/bin/ip rule del fwmark 1 table 100
           ${busybox}/bin/ip route del local 0.0.0.0/0 dev lo table 100
 

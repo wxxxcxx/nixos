@@ -1,6 +1,8 @@
 { config, pkgs, ... }@inputs:
 {
-  services.xserver.videoDrivers = [ "nvidia" ];
+  # services.xserver.videoDrivers = [ "nvidia" ];
+  # Fix graphical corruption on suspend/resume
+  # hardware.nvidia.powerManagement.enable = true;
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;

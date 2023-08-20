@@ -1,4 +1,3 @@
-# Generated via dconf2nix: https://github.com/gvolpe/dconf2nix
 { lib, ... }:
 
 with lib.hm.gvariant;
@@ -28,7 +27,7 @@ with lib.hm.gvariant;
       xkb-options = [ "terminate:ctrl_alt_bksp" ];
     };
 
-    "/org/gnome/desktop/wm/keybindings" = {
+    "org/gnome/desktop/wm/keybindings" = {
       close = [ "<Super>q" ];
       activate-window-menu = [ ];
     };
@@ -49,7 +48,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/wm/preferences" = {
-      button-layout = "appmenu:minimize,close";
+      button-layout = "close,minimize:appmenu";
       resize-with-right-button = true;
     };
 
@@ -82,13 +81,9 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell" = {
-      app-picker-layout = "[{'bitwarden.desktop': <{'position': <0>}>, 'org.gnome.Contacts.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'org.gnome.clocks.desktop': <{'position': <3>}>, 'org.gnome.Maps.desktop': <{'position': <4>}>, 'clash-verge.desktop': <{'position': <5>}>, 'org.gnome.Photos.desktop': <{'position': <6>}>, 'datagrip.desktop': <{'position': <7>}>, 'org.gnome.Calculator.desktop': <{'position': <8>}>, 'element-desktop.desktop': <{'position': <9>}>, 'simple-scan.desktop': <{'position': <10>}>, 'org.gnome.Settings.desktop': <{'position': <11>}>, 'gnome-system-monitor.desktop': <{'position': <12>}>, 'org.gnome.Extensions.desktop': <{'position': <13>}>, 'htop.desktop': <{'position': <14>}>, 'Utilities': <{'position': <15>}>, 'lf.desktop': <{'position': <16>}>, 'yelp.desktop': <{'position': <17>}>, 'nvim.desktop': <{'position': <18>}>, 'nixos-manual.desktop': <{'position': <19>}>}, {'nvidia-settings.desktop': <{'position': <0>}>, 'postman.desktop': <{'position': <1>}>, 'qq.desktop': <{'position': <2>}>, 'org.gnome.Tour.desktop': <{'position': <3>}>, 'org.gnome.TextEditor.desktop': <{'position': <4>}>, 'org.wezfurlong.wezterm.desktop': <{'position': <5>}>, 'xterm.desktop': <{'position': <6>}>, 'yesplaymusic.desktop': <{'position': <7>}>, 'org.gnome.Calendar.desktop': <{'position': <8>}>}]";
-      command-history = [ "r" ];
       disable-user-extensions = false;
       disabled-extensions = [ "order-extensions@wa4557.github.com" ];
       enabled-extensions = [ "appindicatorsupport@rgcjonas.gmail.com" "clipboard-indicator@tudmotu.com" "color-picker@tuberry" "customize-ibus@hollowman.ml" "dash-to-dock@micxgx.gmail.com" "hotedge@jonathan.jdoda.ca" "just-perfection-desktop@just-perfection" "KeepAwake@jepfa.de" "nightthemeswitcher@romainvigier.fr" "transparent-top-bar@zhanghai.me" "user-theme@gnome-shell-extensions.gcampax.github.com" "speed@eexpss.gmail.com" "blur-my-shell@aunetx" "places-menu@gnome-shell-extensions.gcampax.github.com" "rounded-window-corners@yilozt" "show-desktop-button@amivaleo" "scroll-workspaces@gfxmonk.net" "trayIconsReloaded@selfmade.pl" "simplenetspeed@biji.extension" "InternetSpeedMeter@alshakib.dev" "extension-list@tu.berry" "caffeine@patapon.info" ];
-      favorite-apps = [ "org.gnome.Nautilus.desktop" "google-chrome.desktop" "chromium-browser.desktop" "org.gnome.Console.desktop" "code.desktop" "idea-ultimate.desktop" "obsidian.desktop" "org.telegram.desktop.desktop" "discord.desktop" ];
-      welcome-dialog-last-shown-version = "44.2";
     };
 
     "org/gnome/shell/extensions/caffeine" = {
@@ -98,16 +93,16 @@ with lib.hm.gvariant;
       show-indicator = "always";
     };
 
-    "/org/gnome/shell/extensions/dash-to-dock" = {
+    "org/gnome/shell/extensions/dash-to-dock" = {
       hot-keys = false;
       running-indicator-style = "DOTS";
     };
 
     "org/gnome/shell/extensions/customize-ibus" = {
       enable-orientation = true;
-      candidate-orientation = 1;
+      candidate-orientation = mkUint32 1;
       lookup-table-orientation = 0;
-      lookup-table-orientation = true;
+      input-indicator-only-on-toggle = true;
     };
 
     "org/gnome/shell/extensions/hotedge" = {
@@ -152,7 +147,7 @@ with lib.hm.gvariant;
 
     "org/gnome/shell/extensions/rounded-window-corners" = {
       border-color = mkTuple [ 0.23999999463558197 0.23999999463558197 ];
-      border-width = 1;
+      border-width = 0;
       custom-rounded-corner-settings = "@a{sv} {}";
       focused-shadow = "{'vertical_offset': 4, 'horizontal_offset': 0, 'blur_offset': 28, 'spread_radius': 4, 'opacity': 60}";
       global-rounded-corner-settings = "{'padding': <{'left': <uint32 0>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <false>, 'fullscreen': <false>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>, 'enabled': <true>}";
@@ -173,18 +168,13 @@ with lib.hm.gvariant;
     };
 
     "org/gtk/settings/file-chooser" = {
-      date-format = "regular";
-      location-mode = "path-bar";
-      show-hidden = false;
-      show-size-column = true;
-      show-type-column = true;
-      sidebar-width = 192;
-      sort-column = "name";
-      sort-directories-first = false;
-      sort-order = "ascending";
-      type-format = "category";
-      window-position = mkTuple [ 348 40 ];
-      window-size = mkTuple [ 1000 800 ];
+      sidebar-width = 200;
+      window-size = mkTuple [ 800 600 ];
+    };
+
+    "org/gtk/gtk4/settings/file-chooser" = {
+      sidebar-width = 200;
+      window-size = mkTuple [ 800 600 ];
     };
   };
 }

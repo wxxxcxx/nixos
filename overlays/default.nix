@@ -2,5 +2,5 @@ args:
 builtins.map
   (name: (import (./. + "/${name}") args))
   (builtins.filter
-    (file: file != "default.nix" && file != "neovim" )
+    (file: file != "default.nix" )
     (builtins.attrNames (builtins.readDir ./.)))
