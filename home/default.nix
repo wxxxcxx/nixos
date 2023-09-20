@@ -42,7 +42,7 @@ in
     rnix-lsp
     nixpkgs-fmt
     mpv
-    ulauncher
+    motrix
   ];
 
   fonts.fontconfig.enable = true;

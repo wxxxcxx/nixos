@@ -23,25 +23,27 @@
     enable = true;
     storageDriver = "btrfs";
   };
-  
+
   virtualisation.virtualbox.host.enable = true;
   virtualisation.virtualbox.host.enableExtensionPack = true;
   users.extraGroups.vboxusers.members = [ "wx" ];
+
+
+  environment.variables = {
+    EDITOR = "nvim";
+  };
 
   environment.systemPackages = [
     pkgs.age
     agenix.packages.x86_64-linux.default
   ];
-  environment.variables = {
-    EDITOR = "nvim";
-  };
 
   age.secrets.proxyConfig = {
     file = ../../secrets/proxy.json.age;
     path = "/etc/proxy/proxy.json";
     mode = "666";
   };
-  
+
   services.transproxy = {
     enable = true;
     config = config.age.secrets.proxyConfig.path;

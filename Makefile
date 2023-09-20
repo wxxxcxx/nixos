@@ -10,6 +10,9 @@ deploy:
 debug:
 	nixos-rebuild switch --flake . --use-remote-sudo --show-trace --verbose
 
+check:
+	nix flake check
+
 update:
 	nix flake update
 

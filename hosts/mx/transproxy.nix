@@ -1,4 +1,4 @@
-{ config, pkgs, lib, agenix, ... }:
+{ config, pkgs, lib, ... }:
 let
   inherit (pkgs) gnugrep iptables busybox;
   inherit (lib) optionalString mkIf;

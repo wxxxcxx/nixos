@@ -2,13 +2,12 @@
   description = "Wx's NixOS Flake";
 
   nixConfig = {
-    experimental-features = [ "nix-command" "flakes" ];
+    # experimental-features = [ "nix-command" "flakes" ];
   };
 
   inputs = {
     # Nixpkgs，即 NixOS 官方软件源
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
     nixpkgs-nur = {
       url = github:nix-community/NUR;
     };
@@ -32,16 +31,13 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, programs-sqlite, home-manager, agenix, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
     let
       system = "x86_64-linux";
-      specialArgs = inputs // {
-        pkgs-stable = import nixpkgs-stable {
-          system = system;
-          config.allowUnfree = true;
-        };
-        pkgs-cn = inputs.nixos-cn.legacyPackages.${system};
-      };
+      programs-sqlite = inputs.programs-sqlite;
+      home-manager = inputs.home-manager;
+      agenix = inputs.agenix;
+      specialArgs = inputs;
     in
     {
       nixosConfigurations."mx" = nixpkgs.lib.nixosSystem {
