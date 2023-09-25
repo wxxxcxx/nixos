@@ -5,16 +5,16 @@
 ############################################################################
 
 deploy:
-	nixos-rebuild switch --flake . --use-remote-sudo
+	nixos-rebuild switch --flake . --use-remote-sudo --show-trace
 
 debug:
 	nixos-rebuild switch --flake . --use-remote-sudo --show-trace --verbose
 
 check:
-	nix flake check
+	nix flake check --show-trace
 
 update:
-	nix flake update
+	nix flake update --show-trace
 
 history:
 	nix profile history --profile /nix/var/nix/profiles/system

@@ -7,7 +7,9 @@ with lib.hm.gvariant;
       last-window-size = mkTuple [ 1200 800 ];
       theme = "auto";
     };
-
+    "org/gnome/desktop/a11y" = {
+      always-show-universal-access-status = false;
+    };
     "org/gnome/control-center" = {
       last-panel = "background";
       window-state = mkTuple [ 980 640 ];
@@ -24,10 +26,15 @@ with lib.hm.gvariant;
       mru-sources = [ (mkTuple [ "xkb" "us" ]) (mkTuple [ "ibus" "rime" ]) ];
       sources = [ (mkTuple [ "xkb" "us" ]) (mkTuple [ "ibus" "rime" ]) ];
       xkb-options = [ "terminate:ctrl_alt_bksp" ];
+      per-window = true;
     };
 
     "org/gnome/desktop/wm/keybindings" = {
       close = [ "<Super>q" ];
+      switch-applications = [ "<Super>Tab" ];
+      switch-applications-backward = [ "<Shift><Super>Tab" ];
+      switch-windows = [ "<Alt>Tab" ];
+      switch-windows-backward = [ "<Shift><Alt>Tab" ];
       activate-window-menu = [ ];
     };
 

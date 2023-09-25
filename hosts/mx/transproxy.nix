@@ -48,6 +48,7 @@ in
       let
 
         preStartScript = pkgs.writeShellScript "transproxy-pre-start" ''
+          # 添加路由
           ${busybox}/bin/ip rule add fwmark 1 table 100
           ${busybox}/bin/ip route add local 0.0.0.0/0 dev lo table 100
 
@@ -61,7 +62,7 @@ in
           ${iptables}/bin/iptables -t mangle -A ${chainName} -d 192.0.0.0/24 -j RETURN
           ${iptables}/bin/iptables -t mangle -A ${chainName} -d 224.0.0.0/4 -j RETURN
           ${iptables}/bin/iptables -t mangle -A ${chainName} -d 240.0.0.0/4 -j RETURN
-          # ${iptables}/bin/iptables -t mangle -A ${chainName} -d 255.255.255.255 -j RETURN
+          ${iptables}/bin/iptables -t mangle -A ${chainName} -d 255.255.255.255 -j RETURN
 
           ${iptables}/bin/iptables -t mangle -A ${chainName} -p tcp -j TPROXY --on-port 1090 --tproxy-mark 1
           ${iptables}/bin/iptables -t mangle -A ${chainName} -p udp -j TPROXY --on-port 1090 --tproxy-mark 1
@@ -79,7 +80,7 @@ in
           ${iptables}/bin/iptables -t mangle -A ${chainName}_LOCAL -d 192.0.0.0/24 -j RETURN
           ${iptables}/bin/iptables -t mangle -A ${chainName}_LOCAL -d 224.0.0.0/4 -j RETURN
           ${iptables}/bin/iptables -t mangle -A ${chainName}_LOCAL -d 240.0.0.0/4 -j RETURN
-          # ${iptables}/bin/iptables -t mangle -A ${chainName}_LOCAL -d 255.255.255.255 -j RETURN
+          ${iptables}/bin/iptables -t mangle -A ${chainName}_LOCAL -d 255.255.255.255 -j RETURN
          
           ${iptables}/bin/iptables -t mangle -A ${chainName}_LOCAL -m owner --uid-owner ${serviceConfig.username} -j RETURN
           ${iptables}/bin/iptables -t mangle -A ${chainName}_LOCAL -j MARK --set-mark 1

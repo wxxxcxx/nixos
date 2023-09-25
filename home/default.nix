@@ -21,6 +21,7 @@ in
     bitwarden
     clash-verge
     google-chrome
+    microsoft-edge
     chromium
     jetbrains.idea-ultimate
     jetbrains.datagrip

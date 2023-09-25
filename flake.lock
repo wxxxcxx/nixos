@@ -115,18 +115,19 @@
         "type": "github"
       }
     },
-    "nixpkgs-nur": {
+    "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1695141616,
-        "narHash": "sha256-OCVD2n1tBYF8kObGvb6wM+nxDXCl5pcdRL6XoPjN1YQ=",
-        "owner": "nix-community",
-        "repo": "NUR",
-        "rev": "f6edd5ee22275e5f84abe12a0a290a106c0a4e53",
+        "lastModified": 1694908564,
+        "narHash": "sha256-ducA98AuWWJu5oUElIzN24Q22WlO8bOfixGzBgzYdVc=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "596611941a74be176b98aeba9328aa9d01b8b322",
         "type": "github"
       },
       "original": {
-        "owner": "nix-community",
-        "repo": "NUR",
+        "owner": "NixOS",
+        "ref": "release-23.05",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },
@@ -143,6 +144,37 @@
         "owner": "NixOS",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1694760568,
+        "narHash": "sha256-3G07BiXrp2YQKxdcdms22MUx6spc6A++MSePtatCYuI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "46688f8eb5cd6f1298d873d4d2b9cf245e09e88e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nurpkgs": {
+      "locked": {
+        "lastModified": 1695660394,
+        "narHash": "sha256-dALoxP3Un34kiFngNOgyQDRCyiYkRAIJPPNvunAHP6A=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "3f2fa35cc193bd1c57ac1cd08eb6cf49e3d4945b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
         "type": "github"
       }
     },
@@ -189,9 +221,29 @@
         "dotfiles": "dotfiles",
         "home-manager": "home-manager_2",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs-nur": "nixpkgs-nur",
+        "nurpkgs": "nurpkgs",
         "nvim": "nvim",
-        "programs-sqlite": "programs-sqlite"
+        "programs-sqlite": "programs-sqlite",
+        "sops-nix": "sops-nix"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3",
+        "nixpkgs-stable": "nixpkgs-stable"
+      },
+      "locked": {
+        "lastModified": 1695284550,
+        "narHash": "sha256-z9fz/wz9qo9XePEvdduf+sBNeoI9QG8NJKl5ssA8Xl4=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "2f375ed8702b0d8ee2430885059d5e7975e38f78",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "type": "github"
       }
     },
     "utils": {

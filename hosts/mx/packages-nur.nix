@@ -1,15 +1,13 @@
-{ config, nixpkgs-nur, ... }@inputs:
+{ config, nixpkgs, ... }@inputs:
+let
+  npkgs = config.nur;
+in
 {
-  imports = [
-    nixpkgs-nur.nixosModules.nur
-  ];
-
   nixpkgs.config.permittedInsecurePackages = [
     "openssl-1.1.1w"
   ];
-
   environment.systemPackages = [
-    config.nur.repos.xddxdd.wechat-uos-bin
+    npkgs.repos.xddxdd.wechat-uos-bin
   ];
 }
 
