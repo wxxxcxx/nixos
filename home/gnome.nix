@@ -39,10 +39,13 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
       cursor-theme = "Adwaita";
       enable-animations = true;
       enable-hot-corners = false;
+      font-name = "Noto Sans 11";
+      document-font-name = "Noto Sans 11";
+      monospace-font-name = "Source Code Pro 10";
+      titlebar-font = "Noto Sans Medium 11";
       font-antialiasing = "grayscale";
       font-hinting = "slight";
       icon-theme = "Adwaita";
