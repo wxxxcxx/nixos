@@ -5,11 +5,11 @@
     package = pkgs.nixUnstable;
     settings.auto-optimise-store = true;
     settings.experimental-features = [ "nix-command" "flakes" ];
-    settings.substituters = [
-      "https://mirrors.ustc.edu.cn/nix-channels/store"
-      "https://mirrors.bfsu.edu.cn/nix-channels/store"
-      "https://cache.nixos.org"
-    ];
+    # settings.substituters = [
+    #   "https://mirrors.ustc.edu.cn/nix-channels/store"
+    #   "https://mirrors.bfsu.edu.cn/nix-channels/store"
+    #   "https://cache.nixos.org"
+    # ];
   };
 
   nixpkgs.config = {

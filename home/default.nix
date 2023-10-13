@@ -37,13 +37,15 @@ in
     yesplaymusic
     discord
     betterdiscordctl
-    postman
     dconf2nix
     nix-index
     rnix-lsp
     nixpkgs-fmt
     mpv
     motrix
+    hugo
+    firefox
+    jmeter
   ];
 
   fonts.fontconfig.enable = true;
@@ -69,6 +71,9 @@ in
         "menu/page_size": 8
         schema_list:
           - schema: clover
+        key_binder:
+          bindings:
+            - {accept: "Alt+p", send: Up, when: composing}
     '';
     # mpv
     ".config/mpv".source = dotfiles + /mpv;

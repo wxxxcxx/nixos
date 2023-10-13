@@ -82,6 +82,7 @@ with lib.hm.gvariant;
 
     "org/gnome/settings-daemon/plugins/power" = {
       idle-dim = true;
+      sleep-inactive-ac-timeout = 1800;
       sleep-inactive-ac-type = "suspend";
       sleep-inactive-battery-type = "suspend";
     };
