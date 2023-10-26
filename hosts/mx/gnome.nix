@@ -1,13 +1,18 @@
 { config, pkgs, ... }@inputs:
 {
+
+
   # services.xserver.videoDrivers = [ "nvidia" ];
+
   # hardware.nvidia = {
   #   modesetting.enable = true;
   #   #Fix graphical corruption on suspend/resume
   #   powerManagement.enable = true;
   #   # open = true;
   # };
-
+  hardware.opengl = {
+    enable = true;
+  };
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;

@@ -23,6 +23,7 @@ in
     google-chrome
     microsoft-edge
     chromium
+    jetbrains.idea-community
     jetbrains.idea-ultimate
     jetbrains.datagrip
     lf
@@ -46,6 +47,7 @@ in
     hugo
     firefox
     jmeter
+    vagrant
   ];
 
   fonts.fontconfig.enable = true;
