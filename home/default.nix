@@ -7,7 +7,7 @@ in
   home.username = "wx";
   home.homeDirectory = "/home/wx";
 
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
 
   imports = [
     ./gnome.nix
@@ -19,7 +19,6 @@ in
     gh
     bat
     bitwarden
-    clash-verge
     google-chrome
     microsoft-edge
     chromium
@@ -31,23 +30,23 @@ in
     lazydocker
     lazygit
     qq
-    obsidian
+    # obsidian
     telegram-desktop
     vscode
     wezterm
     yesplaymusic
-    discord
+    # discord
     betterdiscordctl
     dconf2nix
     nix-index
-    rnix-lsp
     nixpkgs-fmt
     mpv
     motrix
     hugo
     firefox
     jmeter
-    vagrant
+    minikube
+    maven
   ];
 
   fonts.fontconfig.enable = true;

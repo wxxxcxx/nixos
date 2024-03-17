@@ -1,6 +1,6 @@
 { config, pkgs, ... }@inputs:
 {
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
   nix = {
     package = pkgs.nixUnstable;
     settings.auto-optimise-store = true;

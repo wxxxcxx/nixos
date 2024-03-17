@@ -45,7 +45,7 @@
   };
 
   services.transproxy = {
-    enable = false;
+    enable = true;
     config = config.age.secrets.proxyConfig.path;
   };
 

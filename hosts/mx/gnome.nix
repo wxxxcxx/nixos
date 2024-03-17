@@ -19,7 +19,6 @@
   environment.gnome.excludePackages = with pkgs.gnome; [
     cheese
     gnome-music
-    gedit
     epiphany
     geary
     evince
